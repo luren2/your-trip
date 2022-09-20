@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# vue-trip
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -30,4 +28,4 @@ npm run build
 ```
 =======
 # your-trip
->>>>>>> a87a8a77ade763bc33530e97321fc4a2aeb5fcc0
+
