@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  /* 主题色 */
+  --primary-color: #ff9854;
+  /* 搜索框背景色 */
+  --van-search-left-icon-color: #ff954 !important;
+  --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f);
+}
+
+/* 是否隐藏底部栏 */
+.hide-tabbar {
+  background-color: #fff;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  z-index: 2;
+}
+
+img {
+  vertical-align: top;
+}
+.dflex {
+  display: flex;
+}
+.jcc {
+  justify-content: center;
+}
+.aic {
+  align-items: center;
+}
+
+.bottom-gray-line {
+  border-bottom: 1px solid #f2f2f2;
+}
