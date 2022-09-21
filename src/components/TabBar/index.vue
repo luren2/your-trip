@@ -21,13 +21,18 @@
 <script setup>
 import TabBarList from '@/assets/data/TabBarList';
 import { getAssetUrl } from '@/utils/load_assets_img';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+
+const route = useRoute();
+watch(route, (newValue) => {
+  const index = TabBarList.findIndex((item) => item.path === newValue.path);
+  currentIndex.value = index;
+});
 
 const currentIndex = ref(0);
 const router = useRouter();
 const itemClick = (index) => {
-  currentIndex.value = index;
   router.push(TabBarList[index].path);
 };
 </script>
