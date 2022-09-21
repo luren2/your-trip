@@ -6,12 +6,13 @@
     </div>
     <HomeSearchBox />
     <HomeCategories />
+    <div class="search-bar" v-if="isShowSearchBar">搜索框</div>
     <HomeContent />
   </div>
 </template>
 
 <script setup>
-import { watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import HomeNavBar from './cpns/HomeNavBar.vue';
 import HomeSearchBox from './cpns/HomeSearchBox.vue';
 import HomeCategories from './cpns/HomeCategories.vue';
@@ -26,7 +27,7 @@ homeStore.fetchCategories();
 homeStore.fetchHouseList();
 
 //监听是否滚动到底部
-const { isReachBottom } = useScroll();
+const { isReachBottom, scrollTop } = useScroll();
 watch(isReachBottom, (newValue) => {
   if (newValue) {
     // 数据加载出来再赋值
@@ -34,6 +35,15 @@ watch(isReachBottom, (newValue) => {
       isReachBottom.value = false;
     });
   }
+});
+
+// 搜索框显示的控制
+// const isShowSearchBar = ref(false);
+// watch(scrollTop, (newValue) => {
+//   isShowSearchBar.value = newValue >= 100;
+// });
+const isShowSearchBar = computed(() => {
+  return scrollTop.value >= 100;
 });
 </script>
 
