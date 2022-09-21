@@ -27,6 +27,7 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 watch(route, (newValue) => {
   const index = TabBarList.findIndex((item) => item.path === newValue.path);
+  if (index === -1) return;
   currentIndex.value = index;
 });
 
