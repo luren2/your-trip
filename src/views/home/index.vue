@@ -6,13 +6,19 @@
     </div>
     <HomeSearchBox />
     <HomeCategories />
-    <div class="search-bar" v-if="isShowSearchBar">搜索框</div>
+    <SearchBar
+      :startDate="'09.12'"
+      :endDate="'09.13'"
+      v-show="isShowSearchBar"
+    />
     <HomeContent />
   </div>
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, watch } from 'vue';
+import SearchBar from '@/components/SearchBar/index.vue';
+
 import HomeNavBar from './cpns/HomeNavBar.vue';
 import HomeSearchBox from './cpns/HomeSearchBox.vue';
 import HomeCategories from './cpns/HomeCategories.vue';
@@ -43,7 +49,7 @@ watch(isReachBottom, (newValue) => {
 //   isShowSearchBar.value = newValue >= 100;
 // });
 const isShowSearchBar = computed(() => {
-  return scrollTop.value >= 100;
+  return scrollTop.value >= 350;
 });
 </script>
 

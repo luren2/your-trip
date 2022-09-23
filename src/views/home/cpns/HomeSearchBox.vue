@@ -65,10 +65,11 @@ import { useRouter } from 'vue-router';
 import useCityStore from '@/stores/modules/city';
 import useHomeStore from '@/stores/modules/home';
 import { storeToRefs } from 'pinia';
-import { onMounted, ref } from 'vue';
+import { ref, computed } from 'vue';
 import { formatDate, getDiffDays } from '@/utils/format_date';
 import { formatCity } from '@/utils/format_city';
 import axios from 'axios';
+import useMainStore from '@/stores/modules/main';
 
 //位置/城市
 const router = useRouter();
@@ -107,19 +108,19 @@ const cityStore = useCityStore();
 const { currentCity } = storeToRefs(cityStore);
 
 // 日期范围的处理
-const today = new Date();
-const tomorrow = new Date().setDate(today.getDate() + 1);
-const startDate = ref(formatDate(today));
-const endDate = ref(formatDate(tomorrow));
-const stayDays = ref(getDiffDays(today, tomorrow));
+const mainStore = useMainStore();
+const { today, tomorrow } = storeToRefs(mainStore);
+const startDate = computed(() => formatDate(today.value));
+const endDate = computed(() => formatDate(tomorrow.value));
+const stayDays = computed(() => getDiffDays(today.value, tomorrow.value));
 
 // 日历相关
 const showCalendar = ref(false);
 const onConfirm = (values) => {
   const [start, end] = values;
   showCalendar.value = false;
-  startDate.value = formatDate(start);
-  endDate.value = formatDate(end);
+  mainStore.today = start;
+  mainStore.tomorrow = end;
   stayDays.value = getDiffDays(start, end);
 };
 
