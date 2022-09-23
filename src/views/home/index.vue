@@ -11,6 +11,7 @@
       :endDate="'09.13'"
       v-show="isShowSearchBar"
     />
+
     <HomeContent />
   </div>
 </template>

@@ -6,12 +6,12 @@
   <RouterLink to="./message">消息</RouterLink> -->
   <!-- <TabBar v-if="!route.meta.hideTabBar" /> -->
   <TabBar />
+  <Loading />
 </template>
 
 <script setup>
 import TabBar from '@/components/TabBar/index.vue';
-import { useRoute } from 'vue-router';
-const route = useRoute();
+import Loading from './components/Loading/index.vue';
 </script>
 
 <style scoped></style>
