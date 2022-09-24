@@ -6,11 +6,9 @@
     </div>
     <HomeSearchBox />
     <HomeCategories />
-    <SearchBar
-      :startDate="'09.12'"
-      :endDate="'09.13'"
-      v-show="isShowSearchBar"
-    />
+    <div class="search" :style="{ opacity: isShowSearchBar ? 1 : 0 }">
+      <SearchBar />
+    </div>
 
     <HomeContent />
   </div>
@@ -61,6 +59,18 @@ const isShowSearchBar = computed(() => {
     img {
       width: 100%;
     }
+  }
+  .search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 71px;
+    background: #fff;
+    z-index: 100;
+
+    padding: 16px 16px 10px;
+    transition: opacity 0.8s ease-in-out;
   }
 }
 </style>

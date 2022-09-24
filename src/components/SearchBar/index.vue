@@ -34,19 +34,6 @@ const endDate = computed(() => formatDate(tomorrow.value, 'MM.DD'));
 </script>
 
 <style lang="less" scoped>
-.search {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 71px;
-  background: #fff;
-  z-index: 100;
-  opacity: 1;
-  transition: all 2s linear;
-
-  padding: 16px 16px 10px;
-}
 .search-bar {
   display: flex;
   height: 45px;
