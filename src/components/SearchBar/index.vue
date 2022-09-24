@@ -1,22 +1,20 @@
 <template>
-  <div class="search">
-    <div class="search-bar">
-      <div class="select-time">
-        <div class="item start">
-          <div class="name">住</div>
-          <div class="date">{{ startDate }}</div>
-        </div>
-        <div class="item end">
-          <div class="name">离</div>
-          <div class="date">{{ endDate }}</div>
-        </div>
+  <div class="search-bar">
+    <div class="select-time">
+      <div class="item">
+        <div class="name">住</div>
+        <div class="date">{{ startDate }}</div>
       </div>
-      <div class="content">
-        <div class="keyword">关键字/位置/民宿</div>
+      <div class="item">
+        <div class="name">离</div>
+        <div class="date">{{ endDate }}</div>
       </div>
-      <div class="right">
-        <i class="icon-search"></i>
-      </div>
+    </div>
+    <div class="content">
+      <div class="keyword">关键字/位置/民宿</div>
+    </div>
+    <div class="right">
+      <i class="icon-search"></i>
     </div>
   </div>
 </template>
