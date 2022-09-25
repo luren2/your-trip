@@ -1,5 +1,5 @@
 <template>
-  <RouterView v-if="isRouterActive" v-slot="{ Component }">
+  <RouterView v-slot="{ Component }">
     <KeepAlive include="home">
       <component :is="Component" />
     </KeepAlive>
@@ -16,14 +16,6 @@
 <script setup>
 import TabBar from '@/components/TabBar/index.vue';
 import Loading from './components/Loading/index.vue';
-import { ref, provide, nextTick } from 'vue';
-const isRouterActive = ref(true);
-provide('reload', () => {
-  isRouterActive.value = false;
-  nextTick(() => {
-    isRouterActive.value = true;
-  });
-});
 </script>
 
 <style scoped></style>

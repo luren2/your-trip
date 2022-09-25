@@ -32,8 +32,7 @@
 </template>
 
 <script setup>
-import { onMounted, watchEffect } from 'vue';
-import { inject } from 'vue';
+import { watchEffect } from 'vue';
 
 const props = defineProps({
   swipeData: {
