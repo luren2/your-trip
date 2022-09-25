@@ -32,8 +32,6 @@
 </template>
 
 <script setup>
-import { watchEffect } from 'vue';
-
 const props = defineProps({
   swipeData: {
     type: Array,
@@ -42,18 +40,13 @@ const props = defineProps({
 });
 
 //对数据进行转换
-
 const swiperGroup = {};
-watchEffect(() => {
-  for (const item of props.swipeData) {
-    swiperGroup[item.enumPictureCategory] = swiperGroup[
-      item.enumPictureCategory
-    ]
-      ? swiperGroup[item.enumPictureCategory]
-      : [];
-    swiperGroup[item.enumPictureCategory].push(item);
-  }
-});
+for (const item of props.swipeData) {
+  swiperGroup[item.enumPictureCategory] = swiperGroup[item.enumPictureCategory]
+    ? swiperGroup[item.enumPictureCategory]
+    : [];
+  swiperGroup[item.enumPictureCategory].push(item);
+}
 
 // 正则处理文字
 const nameReg = /【(.*?)】/i;
