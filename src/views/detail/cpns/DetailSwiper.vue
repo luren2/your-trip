@@ -55,7 +55,6 @@ watchEffect(() => {
     swiperGroup[item.enumPictureCategory].push(item);
   }
 });
-// bug 刷新页面才行
 
 // 正则处理文字
 const nameReg = /【(.*?)】/i;
