@@ -14,6 +14,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'home',
+};
+</script>
+
 <script setup>
 import { computed, watch } from 'vue';
 import SearchBar from '@/components/SearchBar/index.vue';

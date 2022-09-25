@@ -12,7 +12,7 @@ export default function useScroll() {
     const clientHeight = document.documentElement.clientHeight;
     // 有误差 取整 精度问题
     if (parseInt(scrollHeight - scrollTop.value) <= clientHeight) {
-      // console.log('滚到底部了!!!');
+      console.log('滚到底部了!!!');
       isReachBottom.value = true;
     }
   }, 100);
@@ -25,10 +25,10 @@ export default function useScroll() {
     window.removeEventListener('scroll', scrollListenerHandler);
   });
 
-  // keep-live
-  onActivated(() => {
-    window.addEventListener('scroll', scrollListenerHandler);
-  });
+  //home keep-live;
+  // onActivated(() => {
+  //   window.addEventListener('scroll', scrollListenerHandler);
+  // });
   onDeactivated(() => {
     window.removeEventListener('scroll', scrollListenerHandler);
   });

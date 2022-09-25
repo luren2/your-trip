@@ -1,5 +1,9 @@
 <template>
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <KeepAlive include="home">
+      <component :is="Component" />
+    </KeepAlive>
+  </RouterView>
   <!-- <RouterLink to="./home">首页</RouterLink>
   <RouterLink to="./favor">收藏</RouterLink>
   <RouterLink to="./order">订单</RouterLink>
