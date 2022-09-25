@@ -7,7 +7,7 @@ export const useMainStore = defineStore('main', {
   state: () => ({
     today: today,
     tomorrow: tomorrow,
-    isLoading: true,
+    isLoading: false,
   }),
 });
 

@@ -112,7 +112,7 @@ const mainStore = useMainStore();
 const { today, tomorrow } = storeToRefs(mainStore);
 const startDate = computed(() => formatDate(today.value));
 const endDate = computed(() => formatDate(tomorrow.value));
-const stayDays = computed(() => getDiffDays(today.value, tomorrow.value));
+const stayDays = ref(getDiffDays(today.value, tomorrow.value));
 
 // 日历相关
 const showCalendar = ref(false);
