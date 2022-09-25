@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" ref="homeRef">
     <HomeNavBar />
     <div class="banner">
       <img src="@/assets/img/home/banner.webp" alt="" />
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed, onActivated, ref, watch } from 'vue';
 import SearchBar from '@/components/SearchBar/index.vue';
 
 import HomeNavBar from './cpns/HomeNavBar.vue';
@@ -55,6 +55,12 @@ watch(isReachBottom, (newValue) => {
 // });
 const isShowSearchBar = computed(() => {
   return scrollTop.value >= 350;
+});
+
+// 跳转回home 保留原来的位置
+const homeRef = ref();
+onActivated(() => {
+  window.scrollTo({ top: scrollTop.value });
 });
 </script>
 

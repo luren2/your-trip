@@ -11,8 +11,9 @@ export default function useScroll() {
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
     // 有误差 取整 精度问题
+    // console.log(scrollTop.value);
+
     if (parseInt(scrollHeight - scrollTop.value) <= clientHeight) {
-      console.log('滚到底部了!!!');
       isReachBottom.value = true;
     }
   }, 100);
