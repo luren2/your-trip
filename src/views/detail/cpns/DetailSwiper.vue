@@ -43,7 +43,7 @@ const props = defineProps({
 
 //对数据进行转换
 
-let swiperGroup = {};
+const swiperGroup = {};
 watchEffect(() => {
   for (const item of props.swipeData) {
     swiperGroup[item.enumPictureCategory] = swiperGroup[
@@ -53,8 +53,6 @@ watchEffect(() => {
       : [];
     swiperGroup[item.enumPictureCategory].push(item);
   }
-
-  console.log(swiperGroup);
 });
 // bug 刷新页面才行
 onMounted(() => {
