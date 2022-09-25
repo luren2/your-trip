@@ -33,6 +33,7 @@
 
 <script setup>
 import { onMounted, watchEffect } from 'vue';
+import { inject } from 'vue';
 
 const props = defineProps({
   swipeData: {
@@ -55,12 +56,6 @@ watchEffect(() => {
   }
 });
 // bug 刷新页面才行
-onMounted(() => {
-  if (window.location.href.indexOf('#reloaded') == -1) {
-    window.location.href = window.location.href + '#reloaded';
-    window.location.reload();
-  }
-});
 
 // 正则处理文字
 const nameReg = /【(.*?)】/i;

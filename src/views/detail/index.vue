@@ -17,6 +17,7 @@ import { useRoute, useRouter } from 'vue-router';
 import useDetailStore from '@/stores/modules/detail';
 import { storeToRefs } from 'pinia';
 import DetailSwiper from './cpns/DetailSwiper.vue';
+import { onMounted } from 'vue';
 
 //返回首页
 const route = useRoute();
@@ -29,6 +30,14 @@ const onClickLeft = () => {
 const detailStore = useDetailStore();
 detailStore.feachDetails(route.params.id);
 const { detail } = storeToRefs(detailStore);
+
+// bug 刷新页面才行
+onMounted(() => {
+  if (window.location.href.indexOf('#reloaded') == -1) {
+    window.location.href = window.location.href + '#reloaded';
+    window.location.reload();
+  }
+});
 </script>
 
 <style lang="less" scoped>
