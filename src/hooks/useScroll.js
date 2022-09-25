@@ -26,9 +26,9 @@ export default function useScroll() {
   });
 
   //home keep-live;
-  // onActivated(() => {
-  //   window.addEventListener('scroll', scrollListenerHandler);
-  // });
+  onActivated(() => {
+    window.addEventListener('scroll', scrollListenerHandler);
+  });
   onDeactivated(() => {
     window.removeEventListener('scroll', scrollListenerHandler);
   });
